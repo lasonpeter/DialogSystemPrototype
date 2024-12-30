@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
   
-public class AssemblyReloadEditor : EditorWindow {
+public class AssemblyReloadEditor : EditorWindow  {
 	
     System.Action DebugDelegate;
 	

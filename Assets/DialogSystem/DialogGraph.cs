@@ -1,31 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DialogSystem;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using XNode;
-using XNodeEditor;
+
 
 [CreateAssetMenu]
 public class DialogGraph : NodeGraph {
-	private static float lastUpdateTime;
-	private static float updateInterval = 1f;
 
-	public void EditorUpdate()
+
+	public void RecalculateNodes()
 	{
-		if(Time.realtimeSinceStartup - lastUpdateTime > updateInterval)
+		foreach (var node in nodes)
 		{
-			foreach (var node in nodes)
-			{
-				node.TriggerOnValidate();
-			}
-			lastUpdateTime = Time.realtimeSinceStartup;
+			IRecalculable recalculable= node as IRecalculable;
+			recalculable?.Recalculate();
 		}
-	}
-	private void OnEnable()
-	{
-		EditorApplication.update += EditorUpdate;
-		lastUpdateTime = Time.realtimeSinceStartup;
 	}
 }

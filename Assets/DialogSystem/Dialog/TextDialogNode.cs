@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DialogSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 using XNode;
 
 [CreateNodeMenu("Dialog/TextDialog")]
 [NodeTint("#145744")]
-public class TextDialogNode : Node
+public class TextDialogNode : Node, ITraversable
 {
 	[TextArea]
 	public string dialogText;
@@ -25,5 +27,15 @@ public class TextDialogNode : Node
 	public override object GetValue(NodePort port)
 	{
 		return "output";
+	}
+	
+	public Node NextNode(int chosenIndex)
+	{
+		Debug.Log(Outputs.ToArray().Length);
+		foreach (var output in Outputs)
+		{
+			Debug.Log(output.ConnectionCount + output.fieldName);
+		}
+		return Outputs.ToArray()[chosenIndex].GetConnection(0).node;
 	}
 }

@@ -7,6 +7,8 @@ using XNode;
 [NodeTint("#145744")]
 public class DecisionDialogNode : Node, ITraversable
 {
+	public string characterName;
+	public Sprite sprite;
 	[TextArea] public string dialogText;
 	public AudioClip AudioClip;
 	[Input(ShowBackingValue.Never, ConnectionType.Multiple, TypeConstraint.None)]public string Input;
@@ -36,13 +38,16 @@ public class DecisionDialogNode : Node, ITraversable
 	/// <summary>
 	/// Returns all possible choices with their respective "ID"
 	/// </summary>
-	/// <returns>A list of Tuples, string being the text, int being the </returns>
+	/// <returns>A list of Tuples, string being the text, int being the choice index</returns>
 	public List<(string,int)> GetChoices()
 	{
 		List<(string,int)> choices = new();
-		for (int i = 1; i < Outputs.ToArray().Length; i++)
+		int x = Answers.Length-1;
+		for (int i = Outputs.ToArray().Length-1; i >= 1; i--)
 		{
-			choices.Add((Outputs.ToArray()[i].fieldName,i));
+			choices.Add((Answers[x],i));
+			x--;
+			//choices.Add((Outputs.ToArray()[i].fieldName,i));
 		}
 		return choices;
 	}

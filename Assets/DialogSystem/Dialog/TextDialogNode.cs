@@ -10,6 +10,8 @@ using XNode;
 [NodeTint("#145744")]
 public class TextDialogNode : Node, ITraversable
 {
+	public string characterName;
+	public Sprite sprite;
 	[TextArea]
 	public string dialogText;
 	public AudioClip audioClip;

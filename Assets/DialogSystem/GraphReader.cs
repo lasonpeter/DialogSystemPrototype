@@ -14,15 +14,20 @@ public class GraphReader : MonoBehaviour
 {
     public SceneGraph sceneGraph;
     public Node currentNode;
-    public TextMeshProUGUI  TextMesh;
+    public TextMeshProUGUI  textMesh;
+    public TextMeshProUGUI  nameText;
+    public Image characterSprite;
     public GameObject answersList;
     public GameObject answerPrefab;
     public Root rootNode;
+    public Dictionary<string, GameObject> GameObjectsReferences = new();
+
+    public float textSpeed =0.025f;
     // Start is called before the first frame update
     
     /// <summary>
     /// Loads up the dialog by reading the root node
-    /// </summary>
+    /// </summary> 
     void Start()
     {
         rootNode = sceneGraph.graph.nodes.Find(x => x is Root) as Root;
@@ -36,25 +41,41 @@ public class GraphReader : MonoBehaviour
         NextChoice(0);
     }
 
+    /// <summary>
+    /// Draws next choice based on the chosen answer  
+    /// </summary>
+    /// <param name="choice">index of choice</param>
     public void NextChoice(int choice)
-    {
+    { 
+        StopAllCoroutines();
         Type type;
         var node = NextNode(out type, choice);
         if (type == typeof(TextDialogNode))
         {
             TextDialogNode textDialog = node as TextDialogNode;
-            TextMesh.text = textDialog.dialogText;
+            StartCoroutine(TextFadeIn(textDialog.dialogText));
+            //TextMesh.text = textDialog.dialogText;
+            nameText.text = textDialog.characterName;
+            characterSprite.sprite = textDialog.sprite;
             RegenerateChoices(new List<(string, int)> { ("Next", 0) });
         }
         else if (type == typeof(DecisionDialogNode))
         {
             DecisionDialogNode decisionDialog = node as DecisionDialogNode;
-            TextMesh.text = decisionDialog.dialogText;
+            StartCoroutine(TextFadeIn(decisionDialog.dialogText));
+            //TextMesh.text = decisionDialog.dialogText;
+            nameText.text = decisionDialog.characterName;
+            characterSprite.sprite = decisionDialog.sprite;
             RegenerateChoices(decisionDialog.GetChoices());
         }
+        
     }
 
 
+    /// <summary>
+    /// Redraws the buttons that control the choices
+    /// </summary>
+    /// <param name="choices">List of choice tuples</param>
     public void RegenerateChoices(List<(string, int)> choices)
     {
         int i = 0;
@@ -71,7 +92,7 @@ public class GraphReader : MonoBehaviour
             {
                 NextChoice(choice.Item2);
                 Debug.Log($"CHOSEN : {choice.Item2}");
-            });   
+            });
         }
     }
     
@@ -110,6 +131,17 @@ public class GraphReader : MonoBehaviour
     bool IsCalculable(Node node)
     {
         return node is OrNode || node is AndNode || node is Not;
+    }
+
+    IEnumerator TextFadeIn(string text)
+    {
+        int x = 0;
+        while (x < text.Length)
+        {
+            x++;
+            textMesh.text = text.Substring(0, x);
+            yield return new WaitForSeconds(textSpeed);
+        }
     }
 
     // Update is called once per frame

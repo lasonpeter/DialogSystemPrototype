@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using XNode;
 
 namespace DialogSystem.Event
@@ -20,6 +23,8 @@ namespace DialogSystem.Event
 		public SerializedProperty serializedProperty;
 		[SerializeField]
 		public GameObject gameObject;
+
+		public string nodeId;
 		
 		[Serialize]
 		public ClassMethod selectedMethod;
@@ -27,6 +32,8 @@ namespace DialogSystem.Event
 		// Use this for initialization
 		protected override void Init() {
 			base.Init();
+			if(nodeId is null)
+				nodeId = Guid.NewGuid().ToString();
 		}
 	
 	
@@ -40,6 +47,11 @@ namespace DialogSystem.Event
 			// this would cause an infinite loop
 			if(gameObject != null)
 			{
+				GraphReader graphReader = FindObjectOfType<GraphReader>();
+				if(graphReader.GameObjectsReferences.ContainsKey(nodeId)) {
+					graphReader.GameObjectsReferences.Remove(nodeId);
+				}
+				graphReader.GameObjectsReferences.Add(nodeId,gameObject);
 				var w = gameObject.GetComponents<Component>();
 				foreach (var component in w)
 				{
@@ -72,7 +84,15 @@ namespace DialogSystem.Event
 
 		public Node NextNode(int chosenIndex)
 		{
-			throw new NotImplementedException();
+			//MethodInfo methodInfo = new DynamicMethod(selectedMethod.methodName, typeof(void), new Type[] {typeof(int)});
+			GraphReader graphReader= FindObjectOfType<GraphReader>();
+			graphReader.GameObjectsReferences.TryGetValue(nodeId, out var gameObject);
+			var z = gameObject.GetComponent(selectedMethod.classType);
+			var methodInfo= z.GetType().GetMethod(selectedMethod.methodName);
+			methodInfo.Invoke(gameObject.GetComponent(selectedMethod.classType), new object[] { 32 });
+			//var we= Outputs.ToArray()[chosenIndex].GetConnection(0).node as ITraversable;
+			return Outputs.ToArray()[chosenIndex].GetConnection(0).node;
+			//return Outputs.ToArray()[chosenIndex].GetConnection(0).node;
 		}
 	}
 	public class ClassMethods
@@ -84,7 +104,7 @@ namespace DialogSystem.Event
 	[Serializable]
 	public class ClassMethod
 	{
-		public string ClassType;
-		public string MethodName;
+		public string classType;
+		public string methodName;
 	}
 }

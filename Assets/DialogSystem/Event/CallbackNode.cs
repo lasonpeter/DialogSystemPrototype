@@ -36,12 +36,9 @@ namespace DialogSystem.Event
 				nodeId = Guid.NewGuid().ToString();
 		}
 	
-	
-	
 
 		private void OnValidate()
 		{
-			
 			ClassMethodsList = new List<ClassMethods>();
 			//this.graph.TriggerOnValidate();
 			// this would cause an infinite loop

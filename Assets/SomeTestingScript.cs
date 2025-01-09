@@ -7,6 +7,9 @@ namespace DefaultNamespace
     public class SomeTestingScript : MonoBehaviour
     {
         public int a = 2;
+        public float z = 0.1f;
+        public string we = "we";
+        public bool whatever = true;
         private int _b = 1;
         protected int C = 3;
 

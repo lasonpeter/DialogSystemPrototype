@@ -5,6 +5,7 @@ using System.Linq;
 using DialogSystem;
 using DialogSystem.Logic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -20,7 +21,19 @@ public class GraphReader : MonoBehaviour
     public GameObject answersList;
     public GameObject answerPrefab;
     public Root rootNode;
+    public Camera camera;
+    [SerializeField]
+    private AudioSource _dialogueAudioSource;
+    [SerializeField] private GameObject player;
+    
+    /// <summary>
+    /// THIS IS POINTLESS, REWRITE THIS
+    /// </summary>
     public Dictionary<string, GameObject> GameObjectsReferences = new();
+    [SerializeField]
+    private AnimationCurve focusCurve;
+    [SerializeField]
+    private float focusSpeed=0.03f;
 
     public float textSpeed =0.025f;
     // Start is called before the first frame update
@@ -47,7 +60,15 @@ public class GraphReader : MonoBehaviour
     /// <param name="choice">index of choice</param>
     public void NextChoice(int choice)
     { 
-        StopAllCoroutines();
+        
+        try
+        {
+            StopCoroutine("TextFadeIn");
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Text wasn't skipped");
+        }
         Type type;
         var node = NextNode(out type, choice);
         if (type == typeof(TextDialogNode))
@@ -57,6 +78,8 @@ public class GraphReader : MonoBehaviour
             //TextMesh.text = textDialog.dialogText;
             nameText.text = textDialog.characterName;
             characterSprite.sprite = textDialog.sprite;
+            _dialogueAudioSource.clip = textDialog.audioClip;
+            _dialogueAudioSource.Play();
             RegenerateChoices(new List<(string, int)> { ("Next", 0) });
         }
         else if (type == typeof(DecisionDialogNode))
@@ -65,13 +88,54 @@ public class GraphReader : MonoBehaviour
             StartCoroutine(TextFadeIn(decisionDialog.dialogText));
             //TextMesh.text = decisionDialog.dialogText;
             nameText.text = decisionDialog.characterName;
+            _dialogueAudioSource.clip = decisionDialog.audioClip;
+            _dialogueAudioSource.Play();
             characterSprite.sprite = decisionDialog.sprite;
             RegenerateChoices(decisionDialog.GetChoices());
         }
+        else if(type== typeof(FocusNode))
+        {
+            Debug.LogWarning("FOOOOCUS NOOOODE");
+            var focusNode = node as FocusNode;
+            StartCoroutine(FocusOnObject(focusNode.focusObject));
+            NextChoice(0);
+            //camera.transform.rotation.R
+        }
         
     }
+    private float Lerp(float var1, float var2, float time)
+    {
+        var difference = var2 - var1;
+        return var1 + difference * time;
+    }
+    
 
-
+    IEnumerator FocusOnObject(GameObject fGameObject)
+    {
+        //Debug.LogWarning($"Lerp {Lerp(10,-20,0.5f)}");
+        float PosXDelta = player.transform.position.x-camera.transform.position.x;
+        float PosYDelta = player.transform.position.y-camera.transform.position.y;
+        float initialPositionX = camera.transform.position.x;
+        float initialPositionY = camera.transform.position.y;
+        //var rotation = camera.quaternion.clone().multiply( rotationOffset );
+        float x = 0;
+        while (x <= 1)
+        {
+          //Debug.LogWarning(x);
+          //camera.transform.rotation= Quaternion.Slerp(initialRotation,finalRotation, focusCurve.Evaluate(x));
+          var position = camera.transform.position;
+          Debug.Log(Lerp( fGameObject.transform.position.x-PosXDelta,initialPositionX, focusCurve.Evaluate(x)));
+          position.x = Mathf.LerpUnclamped(initialPositionX, fGameObject.transform.position.x-PosYDelta, focusCurve.Evaluate(x));
+          position.y = Mathf.LerpUnclamped(initialPositionY, fGameObject.transform.position.y-PosYDelta, focusCurve.Evaluate(x));
+          camera.transform.position = position;
+          
+           // Debug.LogWarning( focusCurve.Evaluate(x));
+            x += 0.01f;
+            yield return new WaitForSeconds(focusSpeed);
+        }
+       // Debug.LogWarning("FinishedFocusing");
+    }
+    
     /// <summary>
     /// Redraws the buttons that control the choices
     /// </summary>
@@ -133,6 +197,11 @@ public class GraphReader : MonoBehaviour
         return node is OrNode || node is AndNode || node is Not;
     }
 
+    /// <summary>
+    /// Simple text writing animation
+    /// </summary>
+    /// <param name="text"></param>
+    /// <returns></returns>
     IEnumerator TextFadeIn(string text)
     {
         int x = 0;
@@ -142,6 +211,7 @@ public class GraphReader : MonoBehaviour
             textMesh.text = text.Substring(0, x);
             yield return new WaitForSeconds(textSpeed);
         }
+        _dialogueAudioSource.Stop();
     }
 
     // Update is called once per frame

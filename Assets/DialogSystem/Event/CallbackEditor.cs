@@ -92,7 +92,6 @@ namespace DialogSystem.Input
                         menu.DropDown(new Rect(20, 150, 170, 0));
                     }    
                 }
-                
             }
 
             // Update serialized object's representation

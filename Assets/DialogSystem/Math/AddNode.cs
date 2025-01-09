@@ -7,10 +7,10 @@ namespace DialogSystem.Math
     [CreateNodeMenu("Math/Add")]
     public class AddNode : Node, IRecalculable
     {
-        [Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.Strict)] public float input1=0;
-        [Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.Strict)] public float input2=0;
+        [Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)] public float input1=0;
+        [Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)] public float input2=0;
 
-        [Output(ShowBackingValue.Always, ConnectionType.Multiple, TypeConstraint.Strict)] public float output;
+        [Output(ShowBackingValue.Always, ConnectionType.Multiple, TypeConstraint.None)] public float output;
         
         protected override void Init() {
             base.Init();
@@ -21,7 +21,7 @@ namespace DialogSystem.Math
             OnValidate();//shutup
         }
         public override object GetValue(NodePort port) {
-            if(port.fieldName== "output")
+            if(port.fieldName == "output")
             {
                 var inputPort1= GetInputPort("input1");
                 var inputPort2= GetInputPort("input2");

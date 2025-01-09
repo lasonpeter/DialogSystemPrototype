@@ -10,7 +10,7 @@ public class DecisionDialogNode : Node, ITraversable
 	public string characterName;
 	public Sprite sprite;
 	[TextArea] public string dialogText;
-	public AudioClip AudioClip;
+	public AudioClip audioClip;
 	[Input(ShowBackingValue.Never, ConnectionType.Multiple, TypeConstraint.None)]public string Input;
 	[TextArea] [Output(ShowBackingValue.Never, ConnectionType.Override,TypeConstraint.None,dynamicPortList = true)] public string[] Answers;
 	

@@ -1,0 +1,7 @@
+{
+  "name": "com.github.lasonpeter.xDialogue",
+  "description": "xDialogue provides means of creating and displaying interactive dialogs",
+  "version": "0.1.0",
+  "unity": "2018.1",
+  "displayName": "xDialogue"
+}

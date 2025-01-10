@@ -9,7 +9,7 @@ using XNode;
 [NodeTint("#6d6d6d")]
 public class FloatVariableNode : Node {
 
-	[Output(ShowBackingValue.Always, ConnectionType.Multiple, TypeConstraint.Strict)] public float output;
+	[Output(ShowBackingValue.Always, ConnectionType.Multiple, TypeConstraint.None)] public float output;
 	
 	// Use this for initialization
 	protected override void Init() {

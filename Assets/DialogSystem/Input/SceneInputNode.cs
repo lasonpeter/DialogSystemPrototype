@@ -21,7 +21,7 @@ public class SceneInputNode : Node {
 	public SerializedProperty serializedProperty;
 	[SerializeField]
 	public GameObject gameObject;
-	public string nodeId;
+	//public string nodeId;
 	
 	[NonSerialized]
 	public string selectedField="";
@@ -29,8 +29,8 @@ public class SceneInputNode : Node {
 	// Use this for initialization
 	protected override void Init() {
 		base.Init();
-		if(nodeId is null)
-			nodeId = Guid.NewGuid().ToString();
+		/*if(nodeId is null)
+			nodeId = Guid.NewGuid().ToString();*/
 	}
 	
 	private void OnValidate()
@@ -40,11 +40,11 @@ public class SceneInputNode : Node {
 		//this.graph.TriggerOnValidate();
 		// this would cause an infinite loop
 		if(gameObject != null){
-			GraphReader graphReader = FindObjectOfType<GraphReader>();
+			/*GraphReader graphReader = FindObjectOfType<GraphReader>();
 			if(graphReader.GameObjectsReferences.ContainsKey(nodeId)) {
 				graphReader.GameObjectsReferences.Remove(nodeId);
 			}
-			graphReader.GameObjectsReferences.Add(nodeId,gameObject);
+			graphReader.GameObjectsReferences.Add(nodeId,gameObject);*/
 			var w = gameObject.GetComponents<Component>();
 			foreach (var component in w)
 			{

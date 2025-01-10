@@ -26,10 +26,6 @@ public class GraphReader : MonoBehaviour
     private AudioSource _dialogueAudioSource;
     [SerializeField] private GameObject player;
     
-    /// <summary>
-    /// THIS IS POINTLESS, REWRITE THIS
-    /// </summary>
-    public Dictionary<string, GameObject> GameObjectsReferences = new();
     [SerializeField]
     private AnimationCurve focusCurve;
     [SerializeField]

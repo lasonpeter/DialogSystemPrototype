@@ -122,6 +122,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &3588531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8f34fa4a9d3aeeb12766d21b65635, type: 3}
+  m_Name: Text Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 872, y: -424}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 3588531}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: True
+        node: {fileID: 2077723458}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 3588531}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  characterName: Quest giver
+  sprite: {fileID: 0}
+  dialogText: There are no quests for you
+  audioClip: {fileID: 0}
+  input: 
+  output: 
 --- !u!1 &19908560
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +407,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67663611}
   m_CullTransparentMesh: 1
+--- !u!114 &77699906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f96cea6ada90b4984cf627badd4634, type: 3}
+  m_Name: Some example Red group
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 56, y: -40}
+  ports:
+    keys: []
+    values: []
+  width: 453
+  height: 387
+  color: {r: 1, g: 0.035849165, b: 0, a: 0.1}
 --- !u!114 &107061769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +440,7 @@ MonoBehaviour:
   m_Name: Scene Input
   m_EditorClassIdentifier: 
   graph: {fileID: 1318731947}
-  position: {x: -168, y: -376}
+  position: {x: 24, y: -216}
   ports:
     keys:
     - whatever
@@ -395,7 +461,6 @@ MonoBehaviour:
     classType: SomeTestingScript
     variableName: whatever
   gameObject: {fileID: 568918791}
-  nodeId: 0e6740e7-e3ee-443e-abab-7cfed71ed8e5
 --- !u!1 &114554647
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +647,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157975856}
   m_CullTransparentMesh: 1
+--- !u!114 &336705822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8f34fa4a9d3aeeb12766d21b65635, type: 3}
+  m_Name: Text Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 1656, y: -200}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 336705822}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Answers 0
+        node: {fileID: 2093562114}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 336705822}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  characterName: 
+  sprite: {fileID: 0}
+  dialogText: 
+  audioClip: {fileID: 0}
+  input: 
+  output: 
+--- !u!114 &367564338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2b8eb62f749554293aa98048fc93e8, type: 3}
+  m_Name: Bool Variable
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 72, y: 8}
+  ports:
+    keys:
+    - output
+    values:
+    - _fieldName: output
+      _node: {fileID: 367564338}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 972024051}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  output: 0
 --- !u!1 &486753934
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +878,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677880080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff855da7d205ced178b8e8a75853721a, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: -8, y: -280}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: 677880080}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _input
+        node: {fileID: 1505669822}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +1003,127 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &733000988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ff10fca5e144f0a95343f3e396e446, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 568, y: 184}
+  ports:
+    keys:
+    - input1
+    - input2
+    - output
+    values:
+    - _fieldName: input1
+      _node: {fileID: 733000988}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: a
+        node: {fileID: 992004619}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input2
+      _node: {fileID: 733000988}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 911664596}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 733000988}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: inputInt
+        node: {fileID: 872541264}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input1: 0
+  input2: 6.54
+  output: 6.54
+--- !u!114 &759261615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1980cbc599f54a89807942a16888f189, type: 3}
+  m_Name: Function Call
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 1080, y: -24}
+  ports:
+    keys:
+    - entry
+    - exit
+    - value
+    values:
+    - _fieldName: entry
+      _node: {fileID: 759261615}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 2145408956}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 759261615}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Input
+        node: {fileID: 2093562114}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: value
+      _node: {fileID: 759261615}
+      _typeQualifiedName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Vector3
+        node: {fileID: 872541264}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry: 
+  exit: 
+  selectedMethod:
+    classType: Transform
+    methodName: set_position
+  gameObject: {fileID: 963194225}
 --- !u!1 &829383736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1327,126 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &831890779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f96cea6ada90b4984cf627badd4634, type: 3}
+  m_Name: Decide which quest to show
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 584, y: -328}
+  ports:
+    keys: []
+    values: []
+  width: 276
+  height: 190
+  color: {r: 0.69625324, g: 0.735849, b: 0.33668566, a: 0.1}
+--- !u!114 &872541264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1980cbc599f54a89807942a16888f189, type: 3}
+  m_Name: DoSomething
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 840, y: 56}
+  ports:
+    keys:
+    - entry
+    - exit
+    - Vector3
+    - inputInt
+    values:
+    - _fieldName: entry
+      _node: {fileID: 872541264}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 872541264}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Vector3
+      _node: {fileID: 872541264}
+      _typeQualifiedName: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: value
+        node: {fileID: 759261615}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: inputInt
+      _node: {fileID: 872541264}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 733000988}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  entry: 
+  exit: 
+  selectedMethod:
+    classType: SomeTestingScript
+    methodName: IntToVector
+  gameObject: {fileID: 568918791}
+--- !u!114 &911664596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa7098c1587c944ba426c1a92754bc7, type: 3}
+  m_Name: Float Variable
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 280, y: 296}
+  ports:
+    keys:
+    - output
+    values:
+    - _fieldName: output
+      _node: {fileID: 911664596}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input2
+        node: {fileID: 733000988}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  output: 6.54
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1556,7 @@ MonoBehaviour:
   shiftAdd: 250
   maxShift: 1000
   camSens: 0.25
---- !u!114 &1075345398
+--- !u!114 &972024051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1151,50 +1565,122 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ff10fca5e144f0a95343f3e396e446, type: 3}
-  m_Name: Add
+  m_Script: {fileID: 11500000, guid: c6f9de52b265499a982d063fc4f97678, type: 3}
+  m_Name: Not
   m_EditorClassIdentifier: 
   graph: {fileID: 1318731947}
-  position: {x: 216, y: -136}
+  position: {x: 232, y: 8}
   ports:
     keys:
+    - input
     - output
-    - input2
-    - input1
     values:
-    - _fieldName: output
-      _node: {fileID: 1075345398}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: input2
-      _node: {fileID: 1075345398}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: input1
-      _node: {fileID: 1075345398}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+    - _fieldName: input
+      _node: {fileID: 972024051}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: z
-        node: {fileID: 1333811609}
+      - fieldName: output
+        node: {fileID: 367564338}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 972024051}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input2
+        node: {fileID: 2109526039}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  input: 0
+  output: 1
+--- !u!114 &984086229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8f34fa4a9d3aeeb12766d21b65635, type: 3}
+  m_Name: Text Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 1668.8625, y: 195.67715}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 984086229}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Answers 1
+        node: {fileID: 2093562114}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  input1: 0.1
-  input2: 0.55
-  output: 0.65000004
+    - _fieldName: output
+      _node: {fileID: 984086229}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  characterName: 
+  sprite: {fileID: 0}
+  dialogText: 
+  audioClip: {fileID: 0}
+  input: 
+  output: 
+--- !u!114 &992004619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01709878fcdb76d9cb5a842d817d39de, type: 3}
+  m_Name: Scene Input
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 248, y: 152}
+  ports:
+    keys:
+    - a
+    values:
+    - _fieldName: a
+      _node: {fileID: 992004619}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input1
+        node: {fileID: 733000988}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  SelectedField:
+    classType: SomeTestingScript
+    variableName: a
+  gameObject: {fileID: 568918791}
 --- !u!1 &1132822192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,12 +1837,27 @@ MonoBehaviour:
   m_Name: GameObject-graph
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 1333811609}
-  - {fileID: 1075345398}
+  - {fileID: 77699906}
+  - {fileID: 831890779}
   - {fileID: 107061769}
   - {fileID: 2109526039}
   - {fileID: 2077723458}
---- !u!114 &1333811609
+  - {fileID: 677880080}
+  - {fileID: 2095839970}
+  - {fileID: 3588531}
+  - {fileID: 2145408956}
+  - {fileID: 992004619}
+  - {fileID: 872541264}
+  - {fileID: 759261615}
+  - {fileID: 2093562114}
+  - {fileID: 984086229}
+  - {fileID: 336705822}
+  - {fileID: 367564338}
+  - {fileID: 972024051}
+  - {fileID: 733000988}
+  - {fileID: 911664596}
+  - {fileID: 1505669822}
+--- !u!114 &1505669822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1365,32 +1866,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01709878fcdb76d9cb5a842d817d39de, type: 3}
-  m_Name: Scene Input
+  m_Script: {fileID: 11500000, guid: 1b8cc67a84efdc944a23fdc92ecdaa89, type: 3}
+  m_Name: Focus
   m_EditorClassIdentifier: 
   graph: {fileID: 1318731947}
-  position: {x: -168, y: -136}
+  position: {x: 168, y: -408}
   ports:
     keys:
-    - z
+    - _input
+    - _output
     values:
-    - _fieldName: z
-      _node: {fileID: 1333811609}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+    - _fieldName: _input
+      _node: {fileID: 1505669822}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: input1
-        node: {fileID: 1075345398}
+      - fieldName: Output
+        node: {fileID: 677880080}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: _output
+      _node: {fileID: 1505669822}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 2095839970}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
-      _dynamic: 1
-  SelectedField:
-    classType: SomeTestingScript
-    variableName: z
-  gameObject: {fileID: 568918791}
-  nodeId: f2369c69-a81d-4c9d-a79b-a00bae3f727f
+      _dynamic: 0
+  _input: 
+  _output: 
+  focusObject: {fileID: 0}
 --- !u!1 &1514378747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +2351,7 @@ MonoBehaviour:
   m_Name: If
   m_EditorClassIdentifier: 
   graph: {fileID: 1318731947}
-  position: {x: 565.4985, y: -203.39066}
+  position: {x: 616, y: -296}
   ports:
     keys:
     - entry
@@ -1852,7 +2364,10 @@ MonoBehaviour:
       _node: {fileID: 2077723458}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 2095839970}
+        reroutePoints: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 0
@@ -1882,7 +2397,10 @@ MonoBehaviour:
       _node: {fileID: 2077723458}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 3588531}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1891,7 +2409,10 @@ MonoBehaviour:
       _node: {fileID: 2077723458}
       _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 2145408956}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -1978,6 +2499,129 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081489916}
   m_CullTransparentMesh: 1
+--- !u!114 &2093562114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df33e13da1b3df237a1b9e61dae0f40b, type: 3}
+  m_Name: Decision Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 1320, y: -136}
+  ports:
+    keys:
+    - Input
+    - Answers
+    - Answers 0
+    - Answers 1
+    values:
+    - _fieldName: Input
+      _node: {fileID: 2093562114}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 759261615}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Answers
+      _node: {fileID: 2093562114}
+      _typeQualifiedName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Answers 0
+      _node: {fileID: 2093562114}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 336705822}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Answers 1
+      _node: {fileID: 2093562114}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 984086229}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  characterName: Quest giver
+  sprite: {fileID: 0}
+  dialogText: Here are some quests
+  audioClip: {fileID: 0}
+  Input: 
+  Answers:
+  - Quest No.1
+  - Quest No.2
+--- !u!114 &2095839970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8f34fa4a9d3aeeb12766d21b65635, type: 3}
+  m_Name: Text Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 392, y: -424}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 2095839970}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: _output
+        node: {fileID: 1505669822}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 2095839970}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 2077723458}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  characterName: Quest taker
+  sprite: {fileID: 0}
+  dialogText: Hello
+  audioClip: {fileID: 0}
+  input: 
+  output: 
 --- !u!114 &2109526039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +2635,7 @@ MonoBehaviour:
   m_Name: And
   m_EditorClassIdentifier: 
   graph: {fileID: 1318731947}
-  position: {x: 216, y: -280}
+  position: {x: 360, y: -168}
   ports:
     keys:
     - input1
@@ -2014,7 +2658,10 @@ MonoBehaviour:
       _node: {fileID: 2109526039}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 972024051}
+        reroutePoints: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
@@ -2032,8 +2679,8 @@ MonoBehaviour:
       _typeConstraint: 2
       _dynamic: 0
   input1: 1
-  input2: 0
-  output: 0
+  input2: 1
+  output: 1
 --- !u!1 &2141093132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,6 +2756,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141093132}
   m_CullTransparentMesh: 1
+--- !u!114 &2145408956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8f34fa4a9d3aeeb12766d21b65635, type: 3}
+  m_Name: Text Dialog
+  m_EditorClassIdentifier: 
+  graph: {fileID: 1318731947}
+  position: {x: 872, y: -200}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 2145408956}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: False
+        node: {fileID: 2077723458}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 2145408956}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 759261615}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  characterName: Quest giver
+  sprite: {fileID: 0}
+  dialogText: Looks like I might have something for you...
+  audioClip: {fileID: 0}
+  input: 
+  output: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -18,6 +18,19 @@ namespace DefaultNamespace
             Debug.Log("Public function : "+a);
         }
 
+        public int HeheheSomeInt()
+        {
+            return 10;
+        }
+        public int HeheheSomeInt(int someVariable,float dff,Vector3 wae)
+        {
+            return someVariable+1;
+        }
+
+        public Vector3 IntToVector(int inputInt)
+        {
+            return Vector3.one * a;
+        }
         private void Private(int a)
         {
             Debug.Log("Private function : "+a);

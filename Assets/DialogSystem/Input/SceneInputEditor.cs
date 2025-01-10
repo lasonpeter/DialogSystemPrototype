@@ -27,7 +27,13 @@ namespace DialogSystem.Input
                 {
                     simpleNode.RemoveDynamicPort(simpleNode.DynamicOutputs.ToArray()[0]);
                 }
+
                 simpleNode.SelectedField = (ClassField)parameter;
+                var z = simpleNode.gameObject.GetComponent(simpleNode.SelectedField.classType);
+                FieldInfo fieldInfo= z.GetType().GetField(simpleNode.SelectedField.variableName);
+                Debug.LogWarning(fieldInfo.FieldType.ToString());
+                simpleNode.AddDynamicOutput(fieldInfo.FieldType, Node.ConnectionType.Multiple,
+                    Node.TypeConstraint.None, fieldInfo.Name);
             }
         }
         public override void OnBodyGUI() {
@@ -53,10 +59,10 @@ namespace DialogSystem.Input
                 }
             }*/
             if(simpleNode && simpleNode.gameObject){
-                GUILayout.Space(40);
+                GUILayout.Space(10);
                 if(simpleNode.SelectedField.classType=="")
                 {
-                    if (EditorGUI.DropdownButton(new Rect(new Vector2(20, 150), new Vector2(170, 20)), new GUIContent("Chose method"), FocusType.Keyboard))
+                    if (EditorGUI.DropdownButton(new Rect(new Vector2(20, 90), new Vector2(170, 20)), new GUIContent("Chose method"), FocusType.Keyboard))
                     {
                         GenericMenu menu = new GenericMenu();
                         foreach (var classMethods in simpleNode.ClassFieldsList)
@@ -85,13 +91,13 @@ namespace DialogSystem.Input
                             
                         }
 
-                        menu.DropDown(new Rect(20, 150, 170, 0));
+                        menu.DropDown(new Rect(20, 110, 350, 0));
                     }
                 }
                 else
                 {
                     string name = simpleNode.SelectedField.classType+"."+simpleNode.SelectedField.variableName;
-                    if (EditorGUI.DropdownButton(new Rect(new Vector2(20, 150), new Vector2(170, 20)), new GUIContent(name), FocusType.Keyboard))
+                    if (EditorGUI.DropdownButton(new Rect(new Vector2(20, 90), new Vector2(170, 20)), new GUIContent(name), FocusType.Keyboard))
                     {
                         GenericMenu menu = new GenericMenu();
                         foreach (var classMethods in simpleNode.ClassFieldsList)
@@ -116,23 +122,12 @@ namespace DialogSystem.Input
                             }
                         }
 
-                        menu.DropDown(new Rect(20, 150, 170, 0));
+                        menu.DropDown(new Rect(20, 110, 350, 0));
                     }    
                 }
+               
             }
-
-            if (simpleNode.DynamicOutputs.ToArray().Length < 1)
-            {
-                GraphReader graphReader= GameObject.FindObjectOfType<GraphReader>();
-                if (graphReader.GameObjectsReferences.TryGetValue(simpleNode.nodeId, out var gameObject))
-                {
-                    var z = gameObject.GetComponent(simpleNode.SelectedField.classType);
-                    FieldInfo fieldInfo= z.GetType().GetField(simpleNode.SelectedField.variableName);
-                    Debug.LogWarning(fieldInfo.FieldType.ToString());
-                    simpleNode.AddDynamicOutput(fieldInfo.FieldType, Node.ConnectionType.Multiple,
-                        Node.TypeConstraint.None, fieldInfo.Name);
-                }   
-            }
+            
             //methodInfo.Invoke(gameObject.GetComponent(selectedMethod.classType), new object[] { 32 });
             // Update serialized object's representation
             serializedObject.Update();

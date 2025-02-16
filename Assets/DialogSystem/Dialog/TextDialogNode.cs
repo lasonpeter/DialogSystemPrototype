@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DialogSystem;
+using DialogSystem.Exceptions;
 using UnityEngine;
 using UnityEngine.Serialization;
 using XNode;
@@ -33,11 +35,16 @@ public class TextDialogNode : Node, ITraversable
 	
 	public Node NextNode(int chosenIndex)
 	{
-		Debug.Log(Outputs.ToArray().Length);
-		foreach (var output in Outputs)
-		{
-			Debug.Log(output.ConnectionCount + output.fieldName);
-		}
+		#if UNITY_EDITOR
+			Debug.Log("THIS IS DEBUG");
+			Debug.Log(Outputs.ToArray().Length);
+			foreach (var outputPort in Outputs)
+			{
+				Debug.Log(outputPort.ConnectionCount + outputPort.fieldName);
+			}
+		#endif
+		if (Outputs.ElementAt(chosenIndex).ConnectionCount == 0) 
+			throw new GraphEndException();
 		return Outputs.ToArray()[chosenIndex].GetConnection(0).node;
 	}
 }

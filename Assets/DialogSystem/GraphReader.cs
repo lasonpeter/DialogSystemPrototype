@@ -25,11 +25,20 @@ public class GraphReader : MonoBehaviour
     [SerializeField]
     private AudioSource _dialogueAudioSource;
     [SerializeField] private GameObject player;
+
+    public delegate void FocusOnObject(GameObject gameObject);
+
     
+    /// <summary>
+    /// This needs to be set, otherwise it will throw the Not Implemented Exception
+    /// </summary>
     [SerializeField]
+    public FocusOnObject FocusOnObjectAction = o => throw new NotImplementedException();
+    
+    /*[SerializeField]
     private AnimationCurve focusCurve;
     [SerializeField]
-    private float focusSpeed=0.03f;
+    private float focusSpeed=0.03f;*/
 
     public float textSpeed =0.025f;
     // Start is called before the first frame update
@@ -55,8 +64,7 @@ public class GraphReader : MonoBehaviour
     /// </summary>
     /// <param name="choice">index of choice</param>
     public void NextChoice(int choice)
-    { 
-        
+    {
         try
         {
             StopCoroutine("TextFadeIn");
@@ -93,7 +101,7 @@ public class GraphReader : MonoBehaviour
         {
             Debug.LogWarning("FOOOOCUS NOOOODE");
             var focusNode = node as FocusNode;
-            StartCoroutine(FocusOnObject(focusNode.focusObject));
+            FocusOnObjectAction(focusNode.focusObject);
             NextChoice(0);
             //camera.transform.rotation.R
         }
@@ -105,37 +113,6 @@ public class GraphReader : MonoBehaviour
         return var1 + difference * time;
     }
     
-
-    IEnumerator FocusOnObject(GameObject fGameObject)
-    {
-        //Debug.LogWarning($"Lerp {Lerp(10,-20,0.5f)}");
-        float PosXDelta = player.transform.position.x-camera.transform.position.x;
-        float PosYDelta = player.transform.position.y-camera.transform.position.y;
-        float initialPositionX = camera.transform.position.x;
-        float initialPositionY = camera.transform.position.y;
-        //var rotation = camera.quaternion.clone().multiply( rotationOffset );
-        float x = 0;
-        while (x <= 1)
-        {
-          //Debug.LogWarning(x);
-          //camera.transform.rotation= Quaternion.Slerp(initialRotation,finalRotation, focusCurve.Evaluate(x));
-          var position = camera.transform.position;
-          Debug.Log(Lerp( fGameObject.transform.position.x-PosXDelta,initialPositionX, focusCurve.Evaluate(x)));
-          position.x = Mathf.LerpUnclamped(initialPositionX, fGameObject.transform.position.x-PosYDelta, focusCurve.Evaluate(x));
-          position.y = Mathf.LerpUnclamped(initialPositionY, fGameObject.transform.position.y-PosYDelta, focusCurve.Evaluate(x));
-          camera.transform.position = position;
-          
-           // Debug.LogWarning( focusCurve.Evaluate(x));
-            x += 0.01f;
-            yield return new WaitForSeconds(focusSpeed);
-        }
-       // Debug.LogWarning("FinishedFocusing");
-    }
-    
-    /// <summary>
-    /// Redraws the buttons that control the choices
-    /// </summary>
-    /// <param name="choices">List of choice tuples</param>
     public void RegenerateChoices(List<(string, int)> choices)
     {
         int i = 0;
